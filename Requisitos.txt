@@ -1,0 +1,6 @@
+1) Listar Todas as Partidas
+	Nome dos Personagens
+2) Listar Um partida especifica
+	Nome dos Personagens
+3) Listar 1 personagem de uma partida (Passar o nome do Personagem e o id da partida)
+	Personagem (Dados completos)
