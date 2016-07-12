@@ -1,11 +1,10 @@
 
-
 package com.ifpb.dd.app;
-import com.ifpb.dd.entidade.*;
 import com.ifpb.dd.cadastro.*;
+import com.ifpb.dd.entidade.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Arrays;
+import java.util.Objects;
 
 public class App {
     
@@ -17,7 +16,7 @@ public class App {
         
         cadJogo.cadastraJogo(j1);
         cadJogo.cadastraJogo(j2);
-        
+
        
     
     }

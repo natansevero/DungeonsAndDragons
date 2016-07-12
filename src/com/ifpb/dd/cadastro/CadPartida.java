@@ -25,8 +25,17 @@ public class CadPartida {
         for(Partida partida : partidas){
             System.out.println(partida.toString());
             for(Personagem person : CadPersonagem.personagens){
-                if(person.getIdPartida() == partida.getId()) 
+                if(partida.getId() == person.getIdPartida()) 
                     System.out.println("\t"+ person.getNomeJogador() + "    " + person.getNomePersonagem());
+            }
+        }
+    }
+    
+    public void listarPartida(int idPartida){
+        for(Partida partida : partidas){
+            if(partida.getId() == idPartida) System.out.println(partida.toString());
+            for(Personagem person : CadPersonagem.personagens){
+                if(idPartida == person.getIdPartida()) System.out.println(person.toString());
             }
         }
     }

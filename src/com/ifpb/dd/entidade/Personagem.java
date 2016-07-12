@@ -4,6 +4,8 @@ package com.ifpb.dd.entidade;
 
 
 public class Personagem {
+    private int idPersonagem;
+    //Referencia ao array Partidas
     private int idPartida;
     private String nomePersonagem;
     private String nomeJogador;
@@ -59,6 +61,14 @@ public class Personagem {
         this.nomeAtk = nomeAtk;
         this.bonusAtk = bonusAtk;
         this.danoAtk = danoAtk;
+    }
+
+    public int getIdPersonagem() {
+        return idPersonagem;
+    }
+
+    public void setIdPersonagem(int idPersonagem) {
+        this.idPersonagem = idPersonagem;
     }
 
     public int getIdPartida() {
