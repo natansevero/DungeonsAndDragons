@@ -2,6 +2,8 @@
 
 package com.ifpb.dd.entidade;
 
+import java.util.Arrays;
+
 
 public class Personagem {
     private int idPersonagem;
@@ -30,11 +32,10 @@ public class Personagem {
     private int vidaTemp;
     private int sucesso;
     private int fracasso;
-    private String nomeAtk;
-    private int bonusAtk;
-    private int danoAtk; 
+    private Skill skills[];
+    private int quantSkill;
 
-    public Personagem(String nomePersonagem, String nomeJogador, String classe, String raca, int nivel, String antecedente, String tendencia, int exp, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int inspiracao, int proficiencia, int classeArmo, int iniciativa, int deslocamento, int vidaAtual, int vidaTemp, int sucesso, int fracasso, String nomeAtk, int bonusAtk, int danoAtk) {
+    public Personagem(String nomePersonagem, String nomeJogador, String classe, String raca, int nivel, String antecedente, String tendencia, int exp, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int inspiracao, int proficiencia, int classeArmo, int iniciativa, int deslocamento, int vidaAtual, int vidaTemp, int sucesso, int fracasso) {
         this.nomePersonagem = nomePersonagem;
         this.nomeJogador = nomeJogador;
         this.classe = classe;
@@ -58,9 +59,8 @@ public class Personagem {
         this.vidaTemp = vidaTemp;
         this.sucesso = sucesso;
         this.fracasso = fracasso;
-        this.nomeAtk = nomeAtk;
-        this.bonusAtk = bonusAtk;
-        this.danoAtk = danoAtk;
+        this.skills = new Skill[3];
+        this.quantSkill = 0;
     }
 
     public int getIdPersonagem() {
@@ -263,27 +263,13 @@ public class Personagem {
         this.fracasso = fracasso;
     }
 
-    public String getNomeAtk() {
-        return nomeAtk;
+    public Skill[] getSkill() {
+        return Arrays.copyOfRange(skills, 0, quantSkill);
     }
 
-    public void setNomeAtk(String nomeAtk) {
-        this.nomeAtk = nomeAtk;
+    public void setSkill(Skill skill) {
+        this.skills[quantSkill++] = skill;
     }
 
-    public int getBonusAtk() {
-        return bonusAtk;
-    }
-
-    public void setBonusAtk(int bonusAtk) {
-        this.bonusAtk = bonusAtk;
-    }
-
-    public int getDanoAtk() {
-        return danoAtk;
-    }
-
-    public void setDanoAtk(int danoAtk) {
-        this.danoAtk = danoAtk;
-    }
+    
 }
