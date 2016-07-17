@@ -5,44 +5,45 @@ import java.util.Arrays;
 
 public class CadPartida {
     private Partida partidas[];
-    private int quantJogo;
-    private int id;
+    private int quantPartida;
 
     public CadPartida(){
         this.partidas = new Partida[1];
-        this.id = 1;
-        this.quantJogo = 0;
+        this.quantPartida = 0;
     }
     
     public boolean cadastraPartida(Partida partida){
         aumentaPartida();
-        partida.setId(id++);
-        partidas[quantJogo++] = partida;
+        partidas[quantPartida++] = partida;
         return true;
     }
     
-    public void listarPartidas(){
-        for(Partida partida : partidas){
-            System.out.println(partida.toString());
-            for(Personagem person : CadPersonagem.personagens){
-               if(partida.getId() == person.getIdPartida()) 
-                    //System.out.println("\t"+ person.getNomeJogador() + "    " + person.getNomePersonagem());
-                    System.out.println(person.toString());
-            }
-        }
+    public Partida[] listarParitidas(){
+        return Arrays.copyOfRange(partidas, 0, quantPartida);
     }
     
-    public void listarPartida(int idPartida){
-        for(Partida partida : partidas){
-            if(partida.getId() == idPartida) System.out.println(partida.toString());
-            for(Personagem person : CadPersonagem.personagens){
-                if(idPartida == person.getIdPartida()) System.out.println(person.toString());
-            }
+    public void listarParida(int pos){
+        if(pos < 0 || pos >= quantPartida) System.err.println("Partida Inexistente");
+        else System.out.println(partidas[pos].toString());
+    }
+    
+    public void listarPersonagem(int posPartida, String nomePersonagem){
+        int cont = 0;
+        if(posPartida >= quantPartida) System.err.println("Partida Inexistente");
+        else {
+            Personagem personagem[] = partidas[posPartida].getPersonagem();
+            for(int i = 0; i < personagem.length; i++)
+                if(nomePersonagem.equals(personagem[i].getNomePersonagem())) {
+                    cont++;
+                    System.out.println(personagem[i].toString());
+                }
         }
+        
+        if(cont == 0) System.err.println("Personagem Inexistente");
     }
     
     private void aumentaPartida(){
-        if(quantJogo == partidas.length) partidas = Arrays.copyOf(partidas, partidas.length*2);
+        if(quantPartida == partidas.length) partidas = Arrays.copyOf(partidas, partidas.length*2);
     }
     
 }

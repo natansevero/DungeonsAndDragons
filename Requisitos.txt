@@ -1,6 +1,5 @@
-1) Listar Todas as Partidas
-	Nome dos Personagens
-2) Listar Um partida especifica
-	Nome dos Personagens
-3) Listar 1 personagem de uma partida (Passar o nome do Personagem e o id da partida)
-	Personagem (Dados completos)
+Requisitos Modificados
+
+1) Listar Partidas e Personagens de uma partida
+2) Lista partida por posição
+3) Lista personagem por posição da partida e posição do personagem
