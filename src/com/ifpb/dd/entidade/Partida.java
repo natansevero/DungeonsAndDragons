@@ -43,6 +43,6 @@ public class Partida {
     public String toString(){
         DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss");
-        return "\nJogo= id: " + getId() + ", Data: " + formatDate.format(getData()) + ", Hora: " + formatTime.format(getHora());
+        return "\nPartida=> id: " + getId() + ", Data: " + formatDate.format(getData()) + ", Hora: " + formatTime.format(getHora());
     }
 }

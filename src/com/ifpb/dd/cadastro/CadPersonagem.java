@@ -6,7 +6,7 @@ import java.util.Objects;
 import com.ifpb.dd.entidade.*;
 
 public class CadPersonagem {
-    protected static Personagem personagens[];
+    public static Personagem personagens[];
     private int idPersonagem;
     private int quant;
     

@@ -35,7 +35,8 @@ public class Personagem {
     private Skill skills[];
     private int quantSkill;
 
-    public Personagem(String nomePersonagem, String nomeJogador, String classe, String raca, int nivel, String antecedente, String tendencia, int exp, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int inspiracao, int proficiencia, int classeArmo, int iniciativa, int deslocamento, int vidaAtual, int vidaTemp, int sucesso, int fracasso) {
+    public Personagem(int idPartida, String nomePersonagem, String nomeJogador, String classe, String raca, int nivel, String antecedente, String tendencia, int exp, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int inspiracao, int proficiencia, int classeArmo, int iniciativa, int deslocamento, int vidaAtual, int vidaTemp, int sucesso, int fracasso) {
+        this.idPartida = idPartida;
         this.nomePersonagem = nomePersonagem;
         this.nomeJogador = nomeJogador;
         this.classe = classe;
@@ -271,5 +272,17 @@ public class Personagem {
         this.skills[quantSkill++] = skill;
     }
 
+    @Override
+    public String toString(){
+        return "ID Personagem: " + getIdPersonagem() + ", ID Partida: " + getIdPartida() + ", Nome Personagem: " + getNomePersonagem() + 
+                ", \nNome Jogador: " + getNomeJogador() + ", Classe: " + getClasse() + ", Raça: " + getRaca() + 
+                ", \nNivel: " + getNivel() + ", Antecedente: "+ getAntecedente() + ", Tendencia: " + getTendencia() + 
+                ", \nExp: " + getExp() + ", Força: " + getForca() + ", Destreza: " + getDestreza() + 
+                ", \nConstituição: " + getConstituicao() + ", Intelegencia: " + getInteligencia() + ", Sabedoria: " + getSabedoria() + 
+                ", \nCarisma: " + getCarisma() + ", Inspiração: " + getInspiracao() + ", Proeficiencia: " + getProficiencia() +
+                ", \nClasse Armo: " + getClasseArmo() + ", Iniciativa: " + getIniciativa() + ", Deslocamento: " + getDeslocamento() +
+                ", \nVida Atual: " + getVidaAtual() + ", Vida Temporaria: " + getVidaTemp() + ", Sucesso: " + getSucesso() + 
+                ", \nFracasso: " + getFracasso() + "\nAtauqes e Magias: " + Arrays.toString(getSkill());
+    }
     
 }

@@ -14,8 +14,8 @@ public class CadPartida {
         this.quantJogo = 0;
     }
     
-    public boolean cadastraJogo(Partida partida){
-        aumentaJogo();
+    public boolean cadastraPartida(Partida partida){
+        aumentaPartida();
         partida.setId(id++);
         partidas[quantJogo++] = partida;
         return true;
@@ -25,8 +25,9 @@ public class CadPartida {
         for(Partida partida : partidas){
             System.out.println(partida.toString());
             for(Personagem person : CadPersonagem.personagens){
-                if(partida.getId() == person.getIdPartida()) 
-                    System.out.println("\t"+ person.getNomeJogador() + "    " + person.getNomePersonagem());
+               if(partida.getId() == person.getIdPartida()) 
+                    //System.out.println("\t"+ person.getNomeJogador() + "    " + person.getNomePersonagem());
+                    System.out.println(person.toString());
             }
         }
     }
@@ -40,7 +41,7 @@ public class CadPartida {
         }
     }
     
-    private void aumentaJogo(){
+    private void aumentaPartida(){
         if(quantJogo == partidas.length) partidas = Arrays.copyOf(partidas, partidas.length*2);
     }
     
