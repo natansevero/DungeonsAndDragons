@@ -22,7 +22,7 @@ public class Personagem {
     private int carisma;
     private int inspiracao;
     private int proficiencia;
-    private int classeArmo;
+    private String classeArmo;
     private int iniciativa;
     private int deslocamento;
     private int vidaAtual;
@@ -32,7 +32,7 @@ public class Personagem {
     private Skill skills[];
     private int quantSkill;
 
-    public Personagem(String nomePersonagem, String nomeJogador, String classe, String raca, int nivel, String antecedente, String tendencia, int exp, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int inspiracao, int proficiencia, int classeArmo, int iniciativa, int deslocamento, int vidaAtual, int vidaTemp, int sucesso, int fracasso) {
+    public Personagem(String nomePersonagem, String nomeJogador, String classe, String raca, int nivel, String antecedente, String tendencia, int exp, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int inspiracao, int proficiencia, String classeArmo, int iniciativa, int deslocamento, int vidaAtual, int vidaTemp, int sucesso, int fracasso) {
         this.nomePersonagem = nomePersonagem;
         this.nomeJogador = nomeJogador;
         this.classe = classe;
@@ -188,11 +188,11 @@ public class Personagem {
         this.proficiencia = proficiencia;
     }
 
-    public int getClasseArmo() {
+    public String getClasseArmo() {
         return classeArmo;
     }
 
-    public void setClasseArmo(int classeArmo) {
+    public void setClasseArmo(String classeArmo) {
         this.classeArmo = classeArmo;
     }
 
@@ -254,7 +254,7 @@ public class Personagem {
 
     @Override
     public String toString(){
-        return "\n---------------------------\nNome Personagem: " + getNomePersonagem() + 
+        return "\n----------------------------------\nNome Personagem: " + getNomePersonagem() + 
                 ", Nome Jogador: " + getNomeJogador() + ", Classe: " + getClasse() + ", Raça: " + getRaca() + 
                 ", \nNivel: " + getNivel() + ", Antecedente: "+ getAntecedente() + ", Tendencia: " + getTendencia() + 
                 ", \nExp: " + getExp() + ", Força: " + getForca() + ", Destreza: " + getDestreza() + 

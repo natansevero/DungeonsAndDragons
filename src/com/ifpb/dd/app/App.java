@@ -4,7 +4,6 @@ import com.ifpb.dd.cadastro.*;
 import com.ifpb.dd.entidade.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Objects;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -80,7 +79,7 @@ public class App {
                         System.out.println("Bonus de Proficiência:");
                         int bonusProv = input.nextInt();
                         System.out.println("Classe da Armadura:");
-                        int armadura = input.nextInt();
+                        String armadura = input.next();
                         System.out.println("Iniciativa:");
                         int iniciativa = input.nextInt();
                         System.out.println("Deslocamento:");
@@ -93,8 +92,8 @@ public class App {
                         int sucesso = input.nextInt();
                         System.out.println("Fracasso:");
                         int fracasso = input.nextInt();
-
-                        Personagem personagem = new Personagem(nomePersonagem, nomeJogador, classe, raca, nivel, antec, tend, xp, forca, destreza, constituicao, inteligencia, sabedoria, carisma, insp, inteligencia, carisma, iniciativa, desloc, vidaTemp, vidaTemp, sucesso, fracasso);
+                        
+                        Personagem personagem = new Personagem(nomePersonagem, nomeJogador, classe, raca, nivel, antec, tend, xp, forca, destreza, constituicao, inteligencia, sabedoria, carisma, insp, bonusProv, armadura, iniciativa, desloc, vidaTemp, vidaTemp, sucesso, fracasso);
 
                         for(int j = 0; j < 3; j++){
                             System.out.println("Digite os dados do " + i + "º Ataque. Restam: " + (3-j));

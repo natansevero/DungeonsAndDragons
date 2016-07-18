@@ -23,23 +23,22 @@ public class CadPartida {
     }
     
     public void listarParida(int pos){
-        if(pos < 0 || pos >= quantPartida) System.err.println("Partida Inexistente");
+        if(pos < 0 || pos >= quantPartida) System.err.println("Partida Inexistente\n");
         else System.out.println(partidas[pos].toString());
     }
     
     public void listarPersonagem(int posPartida, String nomePersonagem){
         int cont = 0;
-        if(posPartida >= quantPartida) System.err.println("Partida Inexistente");
+        if(posPartida >= quantPartida) System.err.println("Partida Inexistente\n");
         else {
             Personagem personagem[] = partidas[posPartida].getPersonagem();
             for(int i = 0; i < personagem.length; i++)
                 if(nomePersonagem.equals(personagem[i].getNomePersonagem())) {
-                    cont++;
                     System.out.println(personagem[i].toString());
+                    cont++;
                 }
+            if(cont == 0) System.err.println("Personagem Inexistente");
         }
-        
-        if(cont == 0) System.err.println("Personagem Inexistente");
     }
     
     private void aumentaPartida(){
