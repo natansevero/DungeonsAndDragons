@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 
 public class Personagem {
+    private static int quantPerson;
+    private int idPersonagem;
     private String nomePersonagem;
     private String nomeJogador;
     private String classe;
@@ -33,6 +35,7 @@ public class Personagem {
     private int quantSkill;
 
     public Personagem(String nomePersonagem, String nomeJogador, String classe, String raca, int nivel, String antecedente, String tendencia, int exp, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int inspiracao, int proficiencia, String classeArmo, int iniciativa, int deslocamento, int vidaAtual, int vidaTemp, int sucesso, int fracasso) {
+        this.idPersonagem = quantPerson++;
         this.nomePersonagem = nomePersonagem;
         this.nomeJogador = nomeJogador;
         this.classe = classe;
@@ -58,6 +61,10 @@ public class Personagem {
         this.fracasso = fracasso;
         this.skills = new Skill[3];
         this.quantSkill = 0;
+    }
+    
+    public int getIdPersagem(){
+        return idPersonagem;
     }
     
     public String getNomePersonagem() {
@@ -243,18 +250,20 @@ public class Personagem {
     public void setFracasso(int fracasso) {
         this.fracasso = fracasso;
     }
-
+    
+    //List Skills
     public Skill[] getSkill() {
         return Arrays.copyOfRange(skills, 0, quantSkill);
     }
-
+    
+    //Insert Skills
     public void setSkill(Skill skill) {
         this.skills[quantSkill++] = skill;
     }
 
     @Override
     public String toString(){
-        return "\n----------------------------------\nNome Personagem: " + getNomePersonagem() + 
+        return "\n----------------------------------\nIdPersonagem: " + getIdPersagem() + ", Nome Personagem: " + getNomePersonagem() + 
                 ", Nome Jogador: " + getNomeJogador() + ", Classe: " + getClasse() + ", Raça: " + getRaca() + 
                 ", \nNivel: " + getNivel() + ", Antecedente: "+ getAntecedente() + ", Tendencia: " + getTendencia() + 
                 ", \nExp: " + getExp() + ", Força: " + getForca() + ", Destreza: " + getDestreza() + 

@@ -1,48 +1,58 @@
 
 package com.ifpb.dd.cadastro;
 import com.ifpb.dd.entidade.*;
+import com.ifpb.dd.interfaces.GenericDAO;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ListIterator;
 
-public class CadPartida {
-    private Partida partidas[];
-    private int quantPartida;
+/**
+ * 
+ * @author natan
+ */
+
+public class CadPartida implements GenericDAO<Partida> {
+    private List<Partida> partidas;
 
     public CadPartida(){
-        this.partidas = new Partida[1];
-        this.quantPartida = 0;
+        this.partidas = new ArrayList<>();
     }
     
-    public boolean cadastraPartida(Partida partida){
-        aumentaPartida();
-        partidas[quantPartida++] = partida;
-        return true;
+    @Override
+    public boolean cadastraPartida(Partida partida) {
+        return partidas.add(partida);
     }
-    
-    public Partida[] listarParitidas(){
-        return Arrays.copyOfRange(partidas, 0, quantPartida);
+
+    @Override
+    public List<Partida> listarPartidas() {
+        return partidas;
     }
-    
-    public void listarParida(int pos){
-        if(pos < 0 || pos >= quantPartida) System.err.println("Partida Inexistente\n");
-        else System.out.println(partidas[pos].toString());
-    }
-    
-    public void listarPersonagem(int posPartida, String nomePersonagem){
-        int cont = 0;
-        if(posPartida >= quantPartida) System.err.println("Partida Inexistente\n");
-        else {
-            Personagem personagem[] = partidas[posPartida].getPersonagem();
-            for(int i = 0; i < personagem.length; i++)
-                if(nomePersonagem.equals(personagem[i].getNomePersonagem())) {
-                    System.out.println(personagem[i].toString());
-                    cont++;
-                }
-            if(cont == 0) System.err.println("Personagem Inexistente");
+
+    @Override
+    public Partida listarPartida(int id) {
+        //return partidas.get(id);
+        for(Partida parti : partidas){
+            if(parti.getIdPartida() == id)
+                return parti;
         }
+        return null;
     }
-    
-    private void aumentaPartida(){
-        if(quantPartida == partidas.length) partidas = Arrays.copyOf(partidas, partidas.length*2);
+
+    @Override
+    public void listarPersonagem(int idPartida, int idPersonagem) {
+        int cont = 0;
+        
+        List<Personagem> personagens = new ArrayList<>();
+        personagens.addAll(Arrays.asList(partidas.get(idPartida).getPersonagem()));
+        
+        for(Personagem person : personagens){
+            if(person.getIdPersagem() == idPersonagem){
+                System.out.println(person);
+                cont++;
+            }
+        }
+        if(cont == 0) System.err.println("Partida ou Personagem Inexistente!");
     }
     
 }

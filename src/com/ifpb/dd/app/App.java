@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
 public class App {
     
@@ -96,7 +95,7 @@ public class App {
                         Personagem personagem = new Personagem(nomePersonagem, nomeJogador, classe, raca, nivel, antec, tend, xp, forca, destreza, constituicao, inteligencia, sabedoria, carisma, insp, bonusProv, armadura, iniciativa, desloc, vidaTemp, vidaTemp, sucesso, fracasso);
 
                         for(int j = 0; j < 3; j++){
-                            System.out.println("Digite os dados do " + i + "º Ataque. Restam: " + (3-j));
+                            System.out.println("Digite os dados do " + (j+1) + "º Ataque. Restam: " + (3-j));
                             System.out.println("Nome do ataque:");
                             String nomeAtk = input.next();
                             System.out.println("Bônus do ataque:");
@@ -119,22 +118,25 @@ public class App {
                 break;
                     
                 case 2 :
-                    System.out.println(Arrays.toString(cadParida.listarParitidas()));    
+                    System.out.println(cadParida.listarPartidas());    
                 break;
                     
                 case 3 :
-                    System.out.println("Digite a posição da partida: ");
-                    int pos = input.nextInt();
-                    cadParida.listarParida(pos);
+                    System.out.println("Digite o ID da Partida: ");
+                    int id = input.nextInt();
+                    
+                    Partida part = cadParida.listarPartida(id);
+                    if(part == null) System.out.println(part);
+                    else System.err.println("Partida Inexistente");
                 break;
                     
                 case 4 :
-                    System.out.println("Digite a posição da Partida: ");
-                    int posPartida = input.nextInt();
-                    System.out.println("Digite o nome do Personagem: ");
-                    String nomePersonagem = input.next();
+                    System.out.println("Digite o ID da Partida: ");
+                    int idPartida = input.nextInt();
+                    System.out.println("Digite o ID do Personagem: ");
+                    int idPersonagem = input.nextInt();
                     
-                    cadParida.listarPersonagem(posPartida, nomePersonagem);
+                    cadParida.listarPersonagem(idPartida, idPersonagem);
                 break;
                     
                 case 5 :
