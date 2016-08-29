@@ -3,8 +3,9 @@ Requisitos Modificados
 1) Listar Partidas e Personagens de uma partida
 2) Lista partida por posição
 3) Lista personagem por posição da partida e posição do personagem
+4) Remover Partida
+5) Remover Personagem
 
 Exceções que serão tratadas por vontade minha:
     -DateTimeParseException (Uncheked) => Em caso de Data ou Hora digitado de forma errada
-    -IndexOutOfBoundsException (Uncheked) => Em caso de digitar um ID que ultrapasse o .get
-    na opção 4 (Talvez a implementação mude)
+    -IndexOutOfBoundsException (Uncheked) => 

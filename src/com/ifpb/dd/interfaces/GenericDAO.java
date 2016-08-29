@@ -16,4 +16,7 @@ public interface GenericDAO<T> {
     
     public void listarPersonagem(int idPartida, int idPersonagem);
    
+    public boolean removePartida(int idPartida);
+    
+    public boolean removePersonagem(int idPartida, int idPersonagem);
 }

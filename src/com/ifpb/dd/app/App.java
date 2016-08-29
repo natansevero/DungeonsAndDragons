@@ -23,7 +23,9 @@ public class App {
             System.out.println("2-LISTAR PARTIDAS");
             System.out.println("3-LISTAR PARTIDA");
             System.out.println("4-LISTAR PERSONAGEM DE UMA PARTIDA");
-            System.out.println("5-SAIR");
+            System.out.println("5-REMOVER PARTIDA");
+            System.out.println("6-REMOVER PERSONAGEM");
+            System.out.println("7-SAIR");
             System.out.println("Digite uma opção:");
             op = input.nextInt();
             
@@ -140,6 +142,24 @@ public class App {
                 break;
                     
                 case 5 :
+                    System.out.println("Digite o ID da Partida: ");
+                    int idPartidaRemove = input.nextInt();
+                    
+                    if(cadParida.removePartida(idPartidaRemove)) System.out.println("Partida Removida Com Sucesso");
+                    else System.err.println("Error ao remover. Verifique se o ID sou passado corretamente");
+                break;
+                    
+                case 6 :
+                    System.out.println("Digite o ID da Partida: ");
+                    int idPartidaRemove2 = input.nextInt();
+                    System.out.println("Digite o ID do Personagem: ");
+                    int idPersonagemRemove = input.nextInt();
+                    
+                    if(cadParida.removePersonagem(idPartidaRemove2, idPersonagemRemove)) System.out.println("Personagem Removido com Sucesso");
+                    else System.err.println("Error ao remover Personagem. Verifique se o ID da Partida e do Personagem foram passados corretamente");
+                break;
+                    
+                case 7 :
                     System.out.println("Saindo...");
                 break;
                 
@@ -147,7 +167,7 @@ public class App {
                     System.out.println("Essa opção não existe, tente novamente!");
                 break;
             }
-        }while(op != 5);
+        }while(op != 7);
 
        
     

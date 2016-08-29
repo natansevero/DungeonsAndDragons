@@ -5,21 +5,22 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Partida {
     private static int quantPartida;
     private int idPartida;
     private LocalDate data;
     private LocalTime hora;
-    private Personagem personagens[];
+    private List<Personagem> personagens;
     private int quantPersonagem;
     
     public Partida(LocalDate data, LocalTime hora){
         this.idPartida = quantPartida++;
         this.data = data;
         this.hora = hora;
-        this.personagens = new Personagem[1];
-        this.quantPersonagem = 0;
+        this.personagens = new ArrayList<>();
     }
     
     public int getIdPartida(){
@@ -43,22 +44,26 @@ public class Partida {
     }
     
     //List Personagenss
-    public Personagem[] getPersonagem(){
-        return Arrays.copyOfRange(personagens, 0, quantPersonagem);
+    public List<Personagem> getPersonagem(){
+        return personagens;
     }
     
     //Insert Personagens
-    public void setPersonagem(Personagem personagem){
-        aumentaPersonagem();
-        personagens[quantPersonagem++] = personagem;
+    public boolean setPersonagem(Personagem personagem){;
+        return personagens.add(personagem);
+    }
+    
+    //RemovePersonagens
+    public boolean removePerson(int idPersonagem){
+        for(Personagem person : personagens){
+            if(person.getIdPersagem() == idPersonagem)
+                return personagens.remove(person);
+        }
+        return false;
     }
     
     public int getQuantPersonagem(){
-        return quantPersonagem;
-    }
-    
-    private void aumentaPersonagem(){
-        if(quantPersonagem == personagens.length) personagens = Arrays.copyOf(personagens, personagens.length*2);
+        return personagens.size();
     }
     
     @Override
@@ -66,6 +71,6 @@ public class Partida {
         DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss");
         return "\n\nPartida => IdPartida: " + getIdPartida() + ", Data: " + formatDate.format(getData()) + ", Hora: " + formatTime.format(getHora()) +
-               "\nPersonagens: " + Arrays.toString(getPersonagem());
+               "\nPersonagens: " + getPersonagem();
     }
 }

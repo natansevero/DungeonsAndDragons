@@ -3,9 +3,7 @@ package com.ifpb.dd.cadastro;
 import com.ifpb.dd.entidade.*;
 import com.ifpb.dd.interfaces.GenericDAO;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  * 
@@ -44,7 +42,7 @@ public class CadPartida implements GenericDAO<Partida> {
         int cont = 0;
         
         List<Personagem> personagens = new ArrayList<>();
-        personagens.addAll(Arrays.asList(partidas.get(idPartida).getPersonagem()));
+        personagens.addAll(listarPartida(idPartida).getPersonagem());
         
         for(Personagem person : personagens){
             if(person.getIdPersagem() == idPersonagem){
@@ -55,6 +53,24 @@ public class CadPartida implements GenericDAO<Partida> {
         if(cont == 0) System.err.println("Partida ou Personagem Inexistente!");
     }
     
+    @Override
+    public boolean removePartida(int idPartida){
+        for(Partida parti : partidas){
+            if(parti.getIdPartida() == idPartida)
+                return partidas.remove(parti);
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean removePersonagem(int idPartida, int idPersonagem){
+        Partida parti = listarPartida(idPartida);
+        for(Personagem person : parti.getPersonagem()){
+            if(person.getIdPersagem() == idPersonagem)
+                return parti.removePerson(idPersonagem);
+        }
+        return false;
+    }
 }
 
 
