@@ -25,7 +25,9 @@ public class App {
             System.out.println("4-LISTAR PERSONAGEM DE UMA PARTIDA");
             System.out.println("5-REMOVER PARTIDA");
             System.out.println("6-REMOVER PERSONAGEM");
-            System.out.println("7-SAIR");
+            System.out.println("7-ALTERAR PARTIDA");
+            System.out.println("8-ALTERAR PERSONAGEM");
+            System.out.println("9-SAIR");
             System.out.println("Digite uma opção:");
             op = input.nextInt();
             
@@ -160,6 +162,41 @@ public class App {
                 break;
                     
                 case 7 :
+                    System.out.println("Digite o ID da Partida: ");
+                    int idPartidaAltera = input.nextInt();
+                    
+                    System.out.println("Digite a Nova Data");
+                    String novaData = input.next();
+                    
+                    System.out.println("Digite a Nova Hora");
+                    String novaHora = input.next();
+                    
+                    LocalDate novaDataPartida = LocalDate.parse(novaData, formatData);
+                    LocalTime novaHoraPartida = LocalTime.parse(novaHora, formatHora);
+                    
+                    if(cadParida.alteraPartida(idPartidaAltera, novaDataPartida, novaHoraPartida))
+                        System.out.println("Alterado Com Sucesso");
+                    else
+                        System.err.println("Error ao Alterar, verifique se o ID Partida foi passado corretamente");
+                break;
+                    
+                case 8 :
+                    System.out.println("Digite o ID da Partida: ");
+                    int idPartidaAltera2 = input.nextInt();
+                    System.out.println("Digite o ID do Personagem: ");
+                    int idPersonagemAltera = input.nextInt();
+                    System.out.println("Digite o novo Nome do Personagem");
+                    String novoNomePersonagem = input.next();
+                    System.out.println("Digite o novo Nome do Jogador");
+                    String novoNomeJogador = input.next();
+                    
+                    if(cadParida.alteraPersonagem(idPartidaAltera2, idPersonagemAltera, novoNomePersonagem, novoNomeJogador))
+                        System.out.println("Alterado Com Sucesso");
+                    else
+                        System.err.println("Error ao Alterar, verifique se o ID Partida ou ID Personagem foram passados corretamente");              
+                break;
+                    
+                case 9 :
                     System.out.println("Saindo...");
                 break;
                 
@@ -167,7 +204,7 @@ public class App {
                     System.out.println("Essa opção não existe, tente novamente!");
                 break;
             }
-        }while(op != 7);
+        }while(op != 9);
 
        
     

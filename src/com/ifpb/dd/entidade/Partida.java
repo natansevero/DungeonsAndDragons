@@ -62,6 +62,18 @@ public class Partida {
         return false;
     }
     
+    //Alterar Personagem
+    public boolean alteraPerson(int idPersonagem, String nomePersonagem, String nomeJogador){
+        for(Personagem person : personagens){
+            if(person.getIdPersagem() == idPersonagem){
+                person.setNomePersonagem(nomePersonagem);
+                person.setNomeJogador(nomeJogador);
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public int getQuantPersonagem(){
         return personagens.size();
     }

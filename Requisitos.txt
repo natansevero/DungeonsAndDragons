@@ -5,6 +5,8 @@ Requisitos Modificados
 3) Lista personagem por posição da partida e posição do personagem
 4) Remover Partida
 5) Remover Personagem
+6) Editar Partida (Somente Hora e Data)
+7) Editar Personagem (Nome do Personagem e Nome do Jogador)
 
 Exceções que serão tratadas por vontade minha:
     -DateTimeParseException (Uncheked) => Em caso de Data ou Hora digitado de forma errada

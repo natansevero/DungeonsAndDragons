@@ -1,6 +1,8 @@
 
 package com.ifpb.dd.interfaces;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 /**
  *
@@ -19,4 +21,8 @@ public interface GenericDAO<T> {
     public boolean removePartida(int idPartida);
     
     public boolean removePersonagem(int idPartida, int idPersonagem);
+    
+    public boolean alteraPartida(int idPartida, LocalDate date, LocalTime hora);
+    
+    public boolean alteraPersonagem(int idPartida, int idPersonagem, String nomePersonagem, String nomeJogador);
 }
