@@ -206,7 +206,7 @@ public class App {
                     int id = input.nextInt();
                     
                     Partida part = cadParida.listarPartida(id);
-                    if(part == null) System.out.println(part);
+                    if(part != null) System.out.println(part);
                     else System.err.println("Partida Inexistente");
                 break;
                     
