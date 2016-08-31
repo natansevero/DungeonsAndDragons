@@ -10,4 +10,4 @@ Requisitos Modificados
 
 Exceções que serão tratadas por vontade minha:
     -DateTimeParseException (Uncheked) => Em caso de Data ou Hora digitado de forma errada
-    -IndexOutOfBoundsException (Uncheked) => 
+    -InputMismatchException (Uncheked)=> Tipo inesperado para um Scanner
