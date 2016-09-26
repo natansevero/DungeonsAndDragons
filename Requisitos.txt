@@ -11,3 +11,19 @@ Requisitos Modificados
 Exceções que serão tratadas por vontade minha:
     -DateTimeParseException (Uncheked) => Em caso de Data ou Hora digitado de forma errada
     -InputMismatchException (Uncheked)=> Tipo inesperado para um Scanner
+
+Etapa 3:
+
+-Mapeamento:
+    PK: CAPS
+    FK: --exemplo_chave--
+
+    Mestre(ID_MESTRE, nome_mestre, usuario, senha);
+    Partida(ID_PARTIDA, data, hora, --id_mestre--);
+    Personagem(ID_PERSONAGEM, nome_personagem, nome_jogador);
+    
+    Partida_Personagem(--ID_PARTIDA--, --ID_PERSONAGEM--);
+    
+    Skill(ID_SKILL, nome, bonus, dano, tipo, --id_personagem--);
+
+    Tb_Log_Person(ID_LOG, data, hora, tipo_op, --id_personagem--);
